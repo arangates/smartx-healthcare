@@ -10,7 +10,7 @@ body .container {
   display: inline-block;
   box-shadow: 2px 2px 30px 10px rgba(0, 0, 0, 0.2);
   margin: 0px auto;
-  position: absolute;
+  /*position: absolute;*/
   left: 0;
   right: 0;
   top: 50px;

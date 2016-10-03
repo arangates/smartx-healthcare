@@ -114,19 +114,22 @@
 
             <!-- Dashboard Section -->
               <section data-route="dashboard">
+
+              <!-- Container for Pulse vizualization -->
+<paper-material elevation="1" >              
                   <div class="container">
-                      <div class="ping-downlad-upload">
+                     <div class="ping-downlad-upload">
                           <div class="ping">
                               <div class="title">Average</div>
-                              <div class="sub-title"><span class="small-count">12</span> bpm</div>
+                              <div class="sub-title"><span class="small-count" id="pulseavg" >12</span> bpm</div>
                           </div>
                           <div class="ping">
                               <div class="title">Maximum</div>
-                              <div class="sub-title"><span class="small-count1">73.4</span> bpm</div>
+                              <div class="sub-title"><span class="small-count1" id="pulsemax" >73.4</span> bpm</div>
                           </div>
                           <div class="ping">
                               <div class="title">Last updated</div>
-                              <div class="sub-title"><span class="small-count2">27.3</span> min ago</div>
+                              <div class="sub-title"><span class="small-count2" id="pulselast" >27.3</span> min ago</div>
                           </div>
                       </div>
                       <div class="drive">
@@ -136,12 +139,79 @@
                               <div class="gauge-circle"></div>
                           </div>
                           <p>Pulse</p>
-                          <div class="count">0.0</div>
+                          <div class="count" id="pulse">0.0</div>
                           <p class="btm">bpm</p>
                       </div>
                       <div class="location">Chennai,Tamilnadu</div>
                       <a class="btn" href="">history</a>
                   </div>
+</paper-material>
+              <!-- Container for BP vizualization -->
+<paper-material elevation="1" >
+  
+                      <div class="container">
+                      <div class="ping-downlad-upload">
+                          <div class="ping">
+                              <div class="title">Average</div>
+                              <div class="sub-title"><span class="small-count" id="bpavg" >12</span> mmHg</div>
+                          </div>
+                          <div class="ping">
+                              <div class="title">Maximum</div>
+                              <div class="sub-title"><span class="small-count1" id="bpmax" >73.4</span> mmHg</div>
+                          </div>
+                          <div class="ping">
+                              <div class="title">Last updated</div>
+                              <div class="sub-title"><span class="small-count2" id="bplast" >27.3</span> min ago</div>
+                          </div>
+                      </div>
+                      <div class="drive">
+                          <div class="drive-circulate">
+                              <div class="gauge"></div>
+                              <div class="cover"></div>
+                              <div class="gauge-circle"></div>
+                          </div>
+                          <p>Blood Pressure</p>
+                          <div class="count" id="bp" >0.0</div>
+                          <p class="btm">mmHg</p>
+                      </div>
+                      <div class="location">Chennai,Tamilnadu</div>
+                      <a class="btn" href="">history</a>
+                  </div>
+</paper-material>
+
+        <!-- Container for Temperature vizualization -->
+<paper-material elevation="1" >
+  
+                      <div class="container">
+                      <div class="ping-downlad-upload">
+                          <div class="ping">
+                              <div class="title">Average</div>
+                              <div class="sub-title"><span class="small-count" id="temperatureavg" >12</span> &#730;C</div>
+                          </div>
+                          <div class="ping">
+                              <div class="title">Maximum</div>
+                              <div class="sub-title"><span class="small-count1" id="temperaturemax" >73.4</span> &#730;C</div>
+                          </div>
+                          <div class="ping">
+                              <div class="title">Last updated</div>
+                              <div class="sub-title"><span class="small-count2" id="temperaturelast" >27.3</span> min ago</div>
+                          </div>
+                      </div>
+                      <div class="drive">
+                          <div class="drive-circulate">
+                              <div class="gauge"></div>
+                              <div class="cover"></div>
+                              <div class="gauge-circle"></div>
+                          </div>
+                          <p>Temperature</p>
+                          <div class="count" id="temperature" >0.0</div>
+                          <p class="btm">&#730;C</p>
+                      </div>
+                      <div class="location">Chennai,Tamilnadu</div>
+                      <a class="btn" href="">history</a>
+                  </div>
+</paper-material>
+
               </section>
 
               <!-- Pulse section -->
