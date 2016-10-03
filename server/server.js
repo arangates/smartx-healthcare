@@ -1,40 +1,22 @@
 var express = require('express');
+var exphbs  = require('express-handlebars');
+var router = express.Router();
 var app = express();
-var fs = require("fs");
-//Lets require/import the HTTP module
-var http = require('http');
 
-//Lets define a port we want to listen to
-PORT = 8080;
+//mongo
+var mongoose = require('mongoose');
+var User = mongoose.model('User');
+/**Mongo db ends**/
 
-//We need a function which handles requests and send response
-function handleRequest(request, response) {
-//    response.end('It Works!! Path Hit: ' + request.url);
-    var MongoClient = require('mongodb').MongoClient;
+app.get('/', function (req, res) {
+  res.send('Hello World!');
+});
 
-// Connection URL
-    var url = 'mongodb://localhost:12345/pdata';
-// Use connect method to connect to the Server
+app.get('/getFeeds', function (req, res) {
+    var feeds = mongoose.model('feedData');
+  //get data from feeds
+});
 
-    // Find some documents
-
-    MongoClient.connect(url, function (err, db) {
-        var collection = db.collection('data');
-        collection.find({}).toArray(function (err, docs) {
-            response.end(docs);
-            db.close();
-        });
-//        response.end("Connected correctly to server");
-
-
-    });
-}
-
-//Create a server
-var server = http.createServer(handleRequest);
-
-//Lets start our server
-server.listen(PORT, function () {
-    //Callback triggered when server is successfully listening. Hurray!
-    console.log("Server listening on: http://localhost:%s", PORT);
+app.listen(3000, function () {
+  console.log('Example app listening on port 3000!');
 });
