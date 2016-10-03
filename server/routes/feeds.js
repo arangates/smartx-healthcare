@@ -38,15 +38,22 @@ exports.findAll = function(req, res) {
 };
 
 exports.addFeed = function(req, res) {
-    var wine = req.body;
-    console.log('Adding wine: ' + JSON.stringify(wine));
+    var id = req.params.id;
+    var sp = req.params.sp;
+    var dp = req.params.dp;
+    var pulse = req.params.pulse;
+    var temp = req.params.temp;
+//    var feed = req.body;
+    console.log('Adding feed, id: ' +id+" sp:"+sp+" dp:"+dp+" pulse:"+pulse+" temp:"+temp );
+    feed={user_id:id, systolic_pressure:sp, diastolic_pressure: dp, pulse: pulse, temperature: temp, time: Date.now()};
+    console.log(feed);
     db.collection('feeds', function(err, collection) {
-        collection.insert(wine, {safe:true}, function(err, result) {
+        collection.insert(feed, {safe:true}, function(err, result) {
             if (err) {
                 res.send({'error':'An error has occurred'});
             } else {
-                console.log('Success: ' + JSON.stringify(result[0]));
-                res.send(result[0]);
+                console.log('Success: ' + JSON.stringify(result));
+                res.send(result["insertedIds"][0]);
             }
         });
     });
@@ -54,17 +61,17 @@ exports.addFeed = function(req, res) {
 
 exports.updateFeed = function(req, res) {
     var id = req.params.id;
-    var wine = req.body;
-    console.log('Updating wine: ' + id);
-    console.log(JSON.stringify(wine));
+    var feed = req.body;
+    console.log('Updating feed: ' + id);
+    console.log(JSON.stringify(feed));
     db.collection('feeds', function(err, collection) {
-        collection.update({'_id':new BSON.ObjectID(id)}, wine, {safe:true}, function(err, result) {
+        collection.update({'_id':new BSON.ObjectID(id)}, feed, {safe:true}, function(err, result) {
             if (err) {
-                console.log('Error updating wine: ' + err);
+                console.log('Error updating feed: ' + err);
                 res.send({'error':'An error has occurred'});
             } else {
                 console.log('' + result + ' document(s) updated');
-                res.send(wine);
+                res.send(feed);
             }
         });
     });
@@ -72,7 +79,7 @@ exports.updateFeed = function(req, res) {
 
 exports.deleteFeed = function(req, res) {
     var id = req.params.id;
-    console.log('Deleting wine: ' + id);
+    console.log('Deleting feed: ' + id);
     db.collection('feeds', function(err, collection) {
         collection.remove({'_id':new BSON.ObjectID(id)}, {safe:true}, function(err, result) {
             if (err) {
