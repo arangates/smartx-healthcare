@@ -1,111 +1,193 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>freeboard</title>
-	<meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="viewport" content = "width = device-width, initial-scale = 1, user-scalable = no" />
-    <link href="css/freeboard.min.css" rel="stylesheet" />
-    <script src="js/freeboard.thirdparty.min.js"></script>
-    <script type="text/javascript">
-        head.js("js/freeboard_plugins.js",
-                // *** Load more plugins here ***
-                function(){
-                    $(function()
-                    { //DOM Ready
-                        freeboard.initialize(true);
+<!doctype html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable = yes" >
+    <meta name="generator" content="smartx">
+    <title>Care4u</title>
+    <meta name="theme-color" content="#0097A7">
+    <link rel="manifest" href="manifest.json">
+    <meta name="msapplication-TileColor" content="#3372DF">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="smartX">
+    <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="smartX">
+    <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
+    <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="bower_components/webcomponentsjs/webcomponents-lite.min.js"> </script>
+    <link rel="import" href="elements/elements.html">
+    <style is="custom-style" include="shared-styles"></style>
+  </head>
+  <body unresolved="" class="fullbleed layout vertical">
+    <span id="browser-sync-binding"></span>
+    <template is="dom-bind" id="app">
+      <paper-drawer-panel id="paperDrawerPanel" >
+        <paper-scroll-header-panel drawer fixed> 
+             <span><img src="/images/user.jpg" style="max-width: 100%;"  align="center" ></span>
 
-                        var hashpattern = window.location.hash.match(/(&|#)source=([^&]+)/);
-                        if (hashpattern !== null) {
-                            $.getJSON(hashpattern[2], function(data) {
-                                freeboard.loadDashboard(data, function() {
-                                    freeboard.setEditing(false);
-                                });
-                            });
-                        }
+             <paper-toolbar id="drawerToolbar">
+                <span class="paper-font-title">Satheesh Nagaraj</span>
+            </paper-toolbar>
+         
 
-                    });
-                });
-    </script>
-</head>
-<body>
-<div id="board-content">
-    <img id="dash-logo" data-bind="attr:{src: header_image}, visible:header_image()">
-    <div class="gridster responsive-column-width">
-        <ul data-bind="grid: true">
-        </ul>
-    </div>
-</div>
-<header id="main-header" data-bind="if:allow_edit">
-    <div id="admin-bar">
-        <div id="admin-menu">
-            <div id="board-tools">
-                <div id="board-actions">
-                    <ul class="board-toolbar vertical">
-                        <li data-bind="click: loadDashboardFromLocalFile"><i id="full-screen-icon" class="icon-folder-open icon-white"></i><label id="full-screen">Load Freeboard</label></li>
-                   
-                    </ul>
-                </div>
+          <paper-menu class="list" attr-for-selected="data-route" selected="[[route]]">
+          <!-- Dashboard -->
+            <a data-route="dashboard" href="{{baseUrl}}">
+              <iron-icon icon="dns">
+              </iron-icon>
+              <span>Dashboard
+              </span>
+            </a> 
+
+          <!-- Pulse -->
+            <a data-route="pulse" href="{{baseUrl}}pulse">
+              <iron-icon icon="filter-list">
+              </iron-icon>
+              <span>Pulse
+              </span>
+            </a> 
+
+            <!-- BP -->
+            <a data-route="bp" href="{{baseUrl}}bp">
+              <iron-icon icon="receipt">
+              </iron-icon>
+              <span>Blood Pressure
+              </span>
+            </a> 
+
+            <!-- Temperature -->
+           <a data-route="temperature" href="{{baseUrl}}temperature">
+              <iron-icon icon="track-changes">
+              </iron-icon>
+              <span>Temperature
+              </span>
+            </a> 
+
+<!-- Consult -->
+            <a data-route="consult" href="{{baseUrl}}consult">
+              <iron-icon icon="settings-remote">
+              </iron-icon>
+              <span>Consult
+              </span>
+            </a>
+
+<!-- Twitter -->
+            <a data-route="twitter" href="{{baseUrl}}twitter">
+              <iron-icon icon="cloud">
+              </iron-icon>
+              <span>Twitter
+              </span>
+            </a> 
+            <!--  <a href="" class="button">
+            <a data-route="control" href="www.google.com">
+
+              <iron-icon icon="build">
+              </iron-icon>
+              <span>Freeboard
+              </span>
+            </a> -->
+
+            <paper-icon-button 
+          </paper-menu>
+        </paper-scroll-header-panel>
+        <paper-scroll-header-panel main="" id="headerPanelMain" condenses="" no-reveal="" no-dissolve="">
+          <paper-toolbar id="mainToolbar" class="scroll">
+            <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle=""></paper-icon-button>
+            <span class="flex"></span>
+
+            <paper-icon-button icon="refresh">
+            </paper-icon-button>
+            <paper-icon-button icon="search">
+            </paper-icon-button>
+
+            <div class="middle middle-container center horizontal layout">
+              <div class="app-name">Care4u</div>
             </div>
+          </paper-toolbar>
+          <div class="content">
+            <iron-pages attr-for-selected="data-route" selected="{{route}}">
 
-        </div>
-    </div>
-	<div id="column-tools" class="responsive-column-width">
-		<ul class="board-toolbar left-columns">
-			<li class="column-tool add" data-bind="click: addGridColumnLeft"><span class="column-icon right"></span><i class="icon-arrow-left icon-white"></i></li>
-			<li class="column-tool sub" data-bind="click: subGridColumnLeft"><span class="column-icon left"></span><i class="icon-arrow-right icon-white"></i></li>
-		</ul>
-		<ul class="board-toolbar right-columns">
-			<li class="column-tool sub" data-bind="click: subGridColumnRight"><span class="column-icon right"></span><i class="icon-arrow-left icon-white"></i></li>
-			<li class="column-tool add" data-bind="click: addGridColumnRight"><span class="column-icon left"></span><i class="icon-arrow-right icon-white"></i></li>
-		</ul>
-	</div>
-    <div id="toggle-header" data-bind="click: toggleEditing">
-        <i id="toggle-header-icon" class="icon-wrench icon-white"></i></div>
-</header>
+            <!-- Dashboard Section -->
+              <section data-route="dashboard">
+                  <div class="container">
+                      <div class="ping-downlad-upload">
+                          <div class="ping">
+                              <div class="title">Average</div>
+                              <div class="sub-title"><span class="small-count">12</span> bpm</div>
+                          </div>
+                          <div class="ping">
+                              <div class="title">Maximum</div>
+                              <div class="sub-title"><span class="small-count1">73.4</span> bpm</div>
+                          </div>
+                          <div class="ping">
+                              <div class="title">Last updated</div>
+                              <div class="sub-title"><span class="small-count2">27.3</span> min ago</div>
+                          </div>
+                      </div>
+                      <div class="drive">
+                          <div class="drive-circulate">
+                              <div class="gauge"></div>
+                              <div class="cover"></div>
+                              <div class="gauge-circle"></div>
+                          </div>
+                          <p>Pulse</p>
+                          <div class="count">0.0</div>
+                          <p class="btm">bpm</p>
+                      </div>
+                      <div class="location">Chennai,Tamilnadu</div>
+                      <a class="btn" href="">history</a>
+                  </div>
+              </section>
 
-<div style="display:hidden">
-    <ul data-bind="template: { name: 'pane-template', foreach: panes}">
-    </ul>
-</div>
+              <!-- Pulse section -->
+             <section data-route="pulse">
+                  
+              </section>
+              <!-- Blood Pressure section -->
+              <section data-route="bp">
+                  
+              </section>
+              <!-- Temperature section -->
+              <section data-route="temperature">
+                  
+              </section>
+              <!-- Consult section -->
+              <section data-route="consult">
+                  
+              </section>
+               <!-- Twitter section -->
+              <section data-route="twitter">
+                  
+              </section>
+               <!-- Freeboard section -->
+              <!-- <section data-route="control">
+                  
+              </section> -->
 
-<script type="text/html" id="pane-template">
-    <li data-bind="pane: true">
-        <header>
-            <h1 data-bind="text: title"></h1>
-            <ul class="board-toolbar pane-tools">
-                <li data-bind="pluginEditor: {operation: 'add', type: 'widget'}">
-                    <i class="icon-plus icon-white"></i>
-                </li>
-                <li data-bind="pluginEditor: {operation: 'edit', type: 'pane'}">
-                    <i class="icon-wrench icon-white"></i>
-                </li>
-                <li data-bind="pluginEditor: {operation: 'delete', type: 'pane'}">
-                    <i class="icon-trash icon-white"></i>
-                </li>
-            </ul>
-        </header>
-        <section data-bind="foreach: widgets">
-            <div class="sub-section" data-bind="css: 'sub-section-height-' + height()">
-                <div class="widget" data-bind="widget: true, css:{fillsize:fillSize}"></div>
-                <div class="sub-section-tools">
-                    <ul class="board-toolbar">
-                        <!-- ko if:$parent.widgetCanMoveUp($data) -->
-                        <li data-bind="click:$parent.moveWidgetUp"><i class="icon-chevron-up icon-white"></i></li>
-                        <!-- /ko -->
-                        <!-- ko if:$parent.widgetCanMoveDown($data) -->
-                        <li data-bind="click:$parent.moveWidgetDown"><i class="icon-chevron-down icon-white"></i></li>
-                        <!-- /ko -->
-                        <li data-bind="pluginEditor: {operation: 'edit', type: 'widget'}"><i class="icon-wrench icon-white"></i></li>
-                        <li data-bind="pluginEditor: {operation: 'delete', type: 'widget'}"><i class="icon-trash icon-white"></i></li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-    </li>
-</script>
+            </iron-pages>
+          </div>
+        </paper-scroll-header-panel>
+      </paper-drawer-panel>
 
-</body>
+      <paper-toast id="toast">
+        <span class="toast-hide-button" role="button" tabindex="0" onclick="app.$.toast.hide()">Ok
+        </span>
+      </paper-toast>
+
+    </template>
+
+    <!-- JS -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/index.js"></script>
+
+        <!-- Jquery and EON charts plugin for visualization -->
+        <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        <script type="text/javascript" src="http://pubnub.github.io/eon/v/eon/0.0.10/eon.js"></script>
+        <link type="text/css" rel="stylesheet" href="http://pubnub.github.io/eon/v/eon/0.0.10/eon.css">
+  </body>
 </html>

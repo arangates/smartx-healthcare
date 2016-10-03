@@ -1,0 +1,73 @@
+<script src="../bower_components/page/page.js"></script>
+<script>
+  window.addEventListener('WebComponentsReady', function() {
+
+    // We use Page.js for routing.
+
+    // Removes end / from app.baseUrl which page.base requires for production
+    if (window.location.port === '') {  // if production
+      page.base(app.baseUrl.replace(/\/$/, ''));
+    }
+
+    // Middleware
+    function scrollToTop(ctx, next) {
+      app.scrollPageToTop();
+      next();
+    }
+
+    function closeDrawer(ctx, next) {
+      app.closeDrawer();
+      next();
+    }
+
+    // Routes
+    page('*', scrollToTop, closeDrawer, function(ctx, next) {
+      next();
+    });
+
+    page('/', function() {
+      app.route = 'dashboard';
+    });
+
+    page('/dashboard', function() {
+      app.route = 'dashboard';
+    });
+
+    page('/pulse', function() {
+      app.route = 'pulse';
+    });
+
+    page('/bp', function() {
+      app.route = 'bp';
+    });
+
+    page('/temperature', function() {
+      app.route = 'temperature';
+    });
+
+    page('/consult', function() {
+          app.route = 'consult';
+        });
+
+    page('/twitter', function() {
+      app.route = 'twitter';
+    });
+
+    page('/control', function() {
+      app.route = 'control';
+    });
+
+    // 404
+    page('*', function() {
+      app.$.toast.text = 'Can\'t find: ' + window.location.href  + '. Redirected you to Home Page';
+      app.$.toast.show();
+      page.redirect(app.baseUrl);
+    });
+
+    // add #! before urls
+    page({
+      hashbang: true
+    });
+
+  });
+</script>
