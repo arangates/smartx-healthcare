@@ -12,7 +12,7 @@ URL: ds047666.mlab.com
 User: test<br />
 Pass: test<br />
 shell connection string: mongo ds047666.mlab.com:47666/pdata -u test -p test<br />
-Mongo connection string: mongodb://tst:test@ds047666.mlab.com:47666/pdata<br />
+Mongo connection string: mongodb://test:test@ds047666.mlab.com:47666/pdata<br />
 
 ## Server credentials
 Public IP: http://52.39.9.186/<br />
