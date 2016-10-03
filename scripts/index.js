@@ -1,3 +1,4 @@
+
 // BP realtime data
 
 setInterval(function() {
@@ -92,3 +93,4 @@ setInterval(function() {
 		document.getElementById('temperaturelast').innerHTML = temperaturelast.toFixed(1);
 
 }, 1000)
+
