@@ -1,0 +1,161 @@
+body {
+  background: #DEE8EA;
+  width: 100%;
+  font-family: 'Montserrat', arial;
+}
+body .container {
+  background: #454657;
+  width: 500px;
+  height: 580px;
+  display: inline-block;
+  box-shadow: 2px 2px 30px 10px rgba(0, 0, 0, 0.2);
+  margin: 0px auto;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50px;
+}
+@media (max-width: 768px) {
+  body .container {
+    width: 400px;
+  }
+}
+body .container .ping-downlad-upload {
+  width: 100%;
+  margin-top: 35px;
+}
+body .container .ping-downlad-upload .ping {
+  float: left;
+  width: 33.33%;
+  text-align: center;
+}
+body .container .ping-downlad-upload .ping .title {
+  color: #fff;
+  opacity: 0.4;
+  font-weight: 200;
+  font-size: 16px;
+  padding-bottom: 10px;
+}
+body .container .ping-downlad-upload .ping .sub-title {
+  color: #fff;
+  opacity: 0.8;
+  font-weight: 200;
+  font-size: 16px;
+  padding-bottom: 10px;
+}
+body .container .drive {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: block;
+  margin: 160px auto 0px;
+}
+body .container .drive .drive-circulate {
+  position: absolute;
+  animation-name: rotateit;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  display: block;
+  width: 250px;
+  height: 250px;
+}
+@keyframes rotateit {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+body .container .drive .drive-circulate .cover {
+  width: 250px;
+  height: 250px;
+  display: block;
+  position: absolute;
+  background: #444654;
+  border-radius: 50%;
+}
+body .container .drive .drive-circulate .gauge {
+  position: absolute;
+  width: 250px;
+  height: 125px;
+  background: #37DF40;
+  top: -2px;
+  left: -2px;
+  border: 2px solid #37DF40;
+  border-radius: 125px 125px 0px 0px;
+}
+body .container .drive .drive-circulate .gauge-circle {
+  position: absolute;
+  z-index: 4;
+  width: 8px;
+  height: 8px;
+  background: #37DF40;
+  border-radius: 50%;
+  box-shadow: 0px 0px 15px 1px #37DF40;
+  right: -5px;
+  top: 125px;
+}
+body .container .drive p {
+  text-align: center;
+  padding-top: 35px;
+  font-size: 18px;
+  color: #fff;
+  font-weight: 100;
+  opacity: 0.8;
+  z-index: 3;
+}
+body .container .drive p.btm {
+  padding-top: 0px;
+}
+body .container .drive .count {
+  z-index: 3;
+  font-size: 60px;
+  color: #fff;
+  width: 100%;
+  display: block;
+  text-align: center;
+  font-weight: 100;
+  position: relative;
+}
+body .container .location {
+  text-align: center;
+  width: 100%;
+  display: block;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 100px;
+  opacity: 0.4;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+body .container .btn {
+  background: rgba(255, 255, 255, 0.1);
+  display: block;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  text-decoration: none;
+  width: 150px;
+  border-radius: 50px;
+  margin: 0px auto;
+  font-size: 20px;
+  text-align: center;
+  font-weight: 100;
+}
+body .container .btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+body .inspiration {
+  opacity: 0.4;
+  text-align: center;
+  margin-top: 700px;
+  color: #666;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+body .inspiration a {
+  color: #333;
+}
