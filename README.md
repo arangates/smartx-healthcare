@@ -20,9 +20,9 @@ User: ubuntu<br />
 key is used for authentication.
 
 ## Instructions to run code
-1.git clone https://github.com/arangates/smartx-healthcare.git
-2.cd smartx-healthcare
-2.npm install -g bower
-3.bower install 
-4.python -m SimpleHTTPServer 8000
-5.view dashboard at localhost:8000/
+1.git clone https://github.com/arangates/smartx-healthcare.git<br />
+2.cd smartx-healthcare<br />
+2.npm install -g bower<br />
+3.bower install<br />
+4.python -m SimpleHTTPServer 8000<br />
+5.view dashboard at localhost:8000/<br />
