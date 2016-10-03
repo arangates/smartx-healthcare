@@ -1,12 +1,11 @@
 #########Connect to Db########
 from pymongo import MongoClient
-MongoClientAddress = "mongodb://test:test@ds047666.mlab.com"
-MongoPort = "47666"
+MongoClientAddress = "mongodb://127.0.0.1"
+MongoPort = "12345"
 client = MongoClient(MongoClientAddress + ":" + MongoPort)
 db = client.pdata
 #db=MongoClient("mongodb://test:test@ds047666.mlab.com:47666/pdata")
 print(db)
-collection = "data";
 #########Connect to Db Ends########
 import requests
 import json
@@ -25,5 +24,6 @@ for item in data['feeds']:
     else:
         print("not")
         result = db.data.insert(item)
+        print(result)
         
     
