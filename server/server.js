@@ -1,22 +1,13 @@
-var express = require('express');
-var exphbs  = require('express-handlebars');
-var router = express.Router();
+var express = require('express'),
+        feeds = require('./routes/feeds');
 var app = express();
 
-//mongo
-var mongoose = require('mongoose');
-var User = mongoose.model('User');
-/**Mongo db ends**/
+app.get('/feeds', feeds.findAll);
+app.get('/feeds/:id', feeds.findById);
+app.post('/feeds', feeds.addFeed);
+app.put('/feeds/:id', feeds.updateFeed);
+app.delete('/feeds/:id', feeds.deleteFeed);
 
-app.get('/', function (req, res) {
-  res.send('Hello World!');
-});
-
-app.get('/getFeeds', function (req, res) {
-    var feeds = mongoose.model('feedData');
-  //get data from feeds
-});
-
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
-});
+/** start the holy server **/
+app.listen(3000);
+console.log('Listening on port 3000...');

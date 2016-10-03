@@ -8,9 +8,9 @@ import time
 
 def doit():
 	# voltage
-	a= random.randint(210, 220) #v1
-	b= random.randint(210, 230) #v2
-	c= random.randint(210, 240) #v3
+	a= random.randint(10, 220) #v1
+	b= random.randint(10, 130) #v2
+	c= random.randint(10, 40) #v3
 
 	#current
 	d= random.randint(5,7) #c1

@@ -1,0 +1,9 @@
+{
+    "name": "care-for-you",
+    "description": "API for our site",
+    "version": "1.0.0",
+    "private": true,
+    "dependencies": {
+        "express": "3.x"
+    }
+}
