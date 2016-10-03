@@ -120,7 +120,7 @@
                   <div class="container">
                      <div class="ping-downlad-upload">
                           <div class="ping">
-                              <div class="title">Average</div>
+                              <div class="title">Last value</div>
                               <div class="sub-title"><span class="small-count" id="pulseavg" >12</span> bpm</div>
                           </div>
                           <div class="ping">
@@ -128,7 +128,7 @@
                               <div class="sub-title"><span class="small-count1" id="pulsemax" >73.4</span> bpm</div>
                           </div>
                           <div class="ping">
-                              <div class="title">Last updated</div>
+                              <div class="title">Last on updated</div>
                               <div class="sub-title"><span class="small-count2" id="pulselast" >27.3</span> min ago</div>
                           </div>
                       </div>
@@ -152,7 +152,7 @@
                       <div class="container">
                       <div class="ping-downlad-upload">
                           <div class="ping">
-                              <div class="title">Average</div>
+                              <div class="title">Last value</div>
                               <div class="sub-title"><span class="small-count" id="bpavg" >12</span> mmHg</div>
                           </div>
                           <div class="ping">
@@ -160,7 +160,7 @@
                               <div class="sub-title"><span class="small-count1" id="bpmax" >73.4</span> mmHg</div>
                           </div>
                           <div class="ping">
-                              <div class="title">Last updated</div>
+                              <div class="title">Last updated on</div>
                               <div class="sub-title"><span class="small-count2" id="bplast" >27.3</span> min ago</div>
                           </div>
                       </div>
@@ -185,7 +185,7 @@
                       <div class="container">
                       <div class="ping-downlad-upload">
                           <div class="ping">
-                              <div class="title">Average</div>
+                              <div class="title">Last value</div>
                               <div class="sub-title"><span class="small-count" id="temperatureavg" >12</span> &#730;C</div>
                           </div>
                           <div class="ping">
@@ -193,7 +193,7 @@
                               <div class="sub-title"><span class="small-count1" id="temperaturemax" >73.4</span> &#730;C</div>
                           </div>
                           <div class="ping">
-                              <div class="title">Last updated</div>
+                              <div class="title">Last updated on</div>
                               <div class="sub-title"><span class="small-count2" id="temperaturelast" >27.3</span> min ago</div>
                           </div>
                       </div>
@@ -257,119 +257,7 @@
 
             </iron-pages>
             <script>
-            var pubnub = PUBNUB.init({
-    publish_key: 'pub-c-e9228c83-be49-4efa-85b9-3396edf738db',
-    subscribe_key: 'sub-c-ba81fc1e-896e-11e6-974e-0619f8945a4f'
-});
-var channel = "Kcteee";
-
-
-// Pulse
-eon.chart({
-    channel: channel,
-    history: true,
-    flow: true,
-    pubnub: pubnub,
-    debug: true,
-
-    generate: {
-        bindto: '#pulserealtime',
-        data: {
-            labels: false,
-            type: 'bar'
-        }
-    },
-
-    transform: function(a) {
-        return {
-            eon: {
-                'v-1': a[0],
-                'v-2': a[1],
-                'v-3': a[2],
-
-            }
-        };
-    }
-});
-
-// BP     
-eon.chart({
-    channel: channel,
-    history: true,
-    flow: true,
-    pubnub: pubnub,
-    debug: true,
-
-    generate: {
-        bindto: '#bprealtime',
-        data: {
-            labels: true,
-
-        }
-    },
-
-    transform: function(a) {
-        return {
-            eon: {
-                'c-1': a[3],
-                'c-2': a[4],
-                'c-3': a[5]
-            }
-        };
-    }
-});
-
-
-eon.chart({
-    channel: channel,
-    generate: {
-        bindto: '#temperaturerealtime',
-        data: {
-            type: 'gauge',
-        },
-        gauge: {
-            min: 0,
-            max: 100
-        },
-        color: {
-            pattern: ['#FF0000', '#F6C600', '#60B044'],
-            threshold: {
-                values: [30, 60, 90]
-            }
-        }
-    },
-    transform: function(a) {
-        return {
-            eon: {
-                'speed': a[6],
-            }
-        };
-    }
-});
-(function() {
-    var sensors = "http://api.thingspeak.com/channels/18675/feed/last.json";
-    $.getJSON(sensors, {
-            format: "json"
-        })
-        .done(function(data) {
-            setInterval(function() {
-                var f1 = data.field1;
-                var f2 = data.field2;
-                var f3 = data.field3;
-                var f4 = data.field4;
-                var f5 = data.field5;
-                var f6 = data.field6;
-                var f7 = data.field7;
-                // var f8=data.field8;
-                console.log(f1, f2, f3, f4, f5, f6, f7);
-                pubnub.publish({
-                    channel: channel,
-                    message: [f1, f2, f3, f4, f5, f6, f7]
-                });
-            }, 15000);
-        });
-})();
-
+  
 </script>
           </div>
         </paper-scroll-header-panel>
@@ -384,11 +272,12 @@ eon.chart({
 
     <!-- JS -->
         <script src="scripts/app.js"></script>
-        <script src="scripts/index.js"></script>
+      
 
         <!-- Jquery and EON charts plugin for visualization -->
         <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
         <script type="text/javascript" src="http://pubnub.github.io/eon/v/eon/0.0.10/eon.js"></script>
         <link type="text/css" rel="stylesheet" href="http://pubnub.github.io/eon/v/eon/0.0.10/eon.css">
+          <script src="scripts/index.js"></script>
   </body>
 </html>
