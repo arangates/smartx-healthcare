@@ -26,7 +26,11 @@
     });
 
     page('/', function() {
-      app.route = 'dashboard';
+      app.route = 'homepage';
+    });
+
+    page('/homepage', function() {
+      app.route = 'homepage';
     });
 
     page('/dashboard', function() {

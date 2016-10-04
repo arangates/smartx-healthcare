@@ -28,16 +28,24 @@
     <template is="dom-bind" id="app">
       <paper-drawer-panel id="paperDrawerPanel" >
         <paper-scroll-header-panel drawer fixed> 
-             <span><img src="/images/user.jpg" style="max-width: 100%;"  align="center" ></span>
-
+          <a href="{{baseUrl}}homepage">   <span><img src="/images/user.jpg" style="max-width: 100%;"  align="center" ></span>
+</a>
              <paper-toolbar id="drawerToolbar">
                 <span class="paper-font-title">Satheesh Nagaraj</span>
             </paper-toolbar>
          
 
           <paper-menu class="list" attr-for-selected="data-route" selected="[[route]]">
+           <!-- Homepage -->
+            <a data-route="homepage" href="{{baseUrl}}homepage">
+              <iron-icon icon="home">
+              </iron-icon>
+              <span>Home
+              </span>
+            </a> 
+
           <!-- Dashboard -->
-            <a data-route="dashboard" href="{{baseUrl}}">
+            <a data-route="dashboard" href="{{baseUrl}}dashboard">
               <iron-icon icon="dns">
               </iron-icon>
               <span>Dashboard
@@ -78,9 +86,9 @@
 
 <!-- Twitter -->
             <a data-route="twitter" href="{{baseUrl}}twitter">
-              <iron-icon icon="cloud">
+              <iron-icon icon="icons:thumb-up">
               </iron-icon>
-              <span>Twitter
+              <span>Food Suggestion
               </span>
             </a> 
             <!--  <a href="" class="button">
@@ -100,10 +108,10 @@
             <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle=""></paper-icon-button>
             <span class="flex"></span>
 
-            <paper-icon-button icon="refresh">
+            <paper-icon-button icon="refresh" onclick="location.reload();" >
             </paper-icon-button>
-            <paper-icon-button icon="search">
-            </paper-icon-button>
+          <!--   <paper-icon-button icon="search">
+            </paper-icon-button> -->
 
             <div class="middle middle-container center horizontal layout">
               <div class="app-name">Care4u</div>
@@ -111,6 +119,11 @@
           </paper-toolbar>
           <div class="content">
             <iron-pages attr-for-selected="data-route" selected="{{route}}">
+<!-- Homepage Section -->
+<section data-route="homepage" >
+  
+
+</section>
 
             <!-- Dashboard Section -->
               <section data-route="dashboard">
@@ -128,8 +141,8 @@
                               <div class="sub-title"><span class="small-count1" id="pulsemax" >73.4</span> bpm</div>
                           </div>
                           <div class="ping">
-                              <div class="title">Last on updated</div>
-                              <div class="sub-title"><span class="small-count2" id="pulselast" >27.3</span> min ago</div>
+                              <div class="title">Last updated on</div>
+                              <div class="sub-title"><span class="small-count2" id="pulselast" >18:39:0720<br> 16-10-03</span> </div>
                           </div>
                       </div>
                       <div class="drive">
@@ -161,7 +174,7 @@
                           </div>
                           <div class="ping">
                               <div class="title">Last updated on</div>
-                              <div class="sub-title"><span class="small-count2" id="bplast" >27.3</span> min ago</div>
+                              <div class="sub-title"><span class="small-count2" id="bplast" >18:39:0720<br> 16-10-03</span> </div>
                           </div>
                       </div>
                       <div class="drive">
@@ -194,7 +207,7 @@
                           </div>
                           <div class="ping">
                               <div class="title">Last updated on</div>
-                              <div class="sub-title"><span class="small-count2" id="temperaturelast" >27.3</span> min ago</div>
+                              <div class="sub-title"><span class="small-count2" id="temperaturelast" >18:39:0720<br> 16-10-03</span> </div>
                           </div>
                       </div>
                       <div class="drive">
@@ -249,6 +262,125 @@
                <!-- Twitter section -->
               <section data-route="twitter">
                   
+<style is="custom-style">
+  .cafe-header { @apply(--paper-font-headline); }
+  .cafe-light { color: var(--paper-grey-600); }
+  .cafe-location {
+    float: right;
+    font-size: 15px;
+    vertical-align: middle;
+  }
+  .cafe-reserve { color: var(--google-blue-500); }
+  iron-icon.star {
+    --iron-icon-width: 16px;
+    --iron-icon-height: 16px;
+    color: var(--paper-amber-500);
+  }
+  iron-icon.star:last-of-type { color: var(--paper-grey-500); }
+</style>
+  <paper-card style=" background-color: white!important;" image="http://www.prevention.com/sites/prevention.com/files/styles/slideshow-desktop/public/static/02-white-beans-COMP-1349127.jpg?itok=m8WY6Shi" alt="Donuts">
+    <div class="card-content">
+      <div class="cafe-header">White beans
+        <div class="cafe-location cafe-light">
+          <iron-icon icon="communication:location-on"></iron-icon>
+        
+        </div>
+      </div>
+      <div class="cafe-rating">
+        <iron-icon class="star" icon="star"></iron-icon>
+        <iron-icon class="star" icon="star"></iron-icon>
+        <iron-icon class="star" icon="star"></iron-icon>
+        <iron-icon class="star" icon="star"></iron-icon>
+        <iron-icon class="star" icon="star"></iron-icon>
+      </div>
+      <p class="cafe-light">
+One cup of white beans provides 13% of the calcium, 30% of the magnesium, and 24% of the potassium you need every day.
+Tip: You can use this comfort food in side dishes, soups, and entrées. As a meatless source of protein, it’s a great choice for vegetarians. Choose no-salt added or well-rinsed low-sodium canned white beans, or cook dried beans overnight in a slow cooker.</p>
+    </div>
+
+  </paper-card>
+<br>
+
+   <br>
+   <br>
+
+<br>
+    <paper-card style=" background-color: white!important;" image="http://www.prevention.com/sites/prevention.com/files/styles/slideshow-desktop/public/static/03-pork-COMP-3014389.jpg?itok=SMitvGNj" alt="Donuts">
+    <div class="card-content">
+      <div class="cafe-header">Pork tenderloin
+        <div class="cafe-location cafe-light">
+          <iron-icon icon="communication:location-on"></iron-icon>
+        
+        </div>
+      </div>
+      <div class="cafe-rating">
+        <iron-icon class="star" icon="star"></iron-icon>
+        <iron-icon class="star" icon="star"></iron-icon>
+        <iron-icon class="star" icon="star"></iron-icon>
+        <iron-icon class="star" icon="star"></iron-icon>
+        <iron-icon class="star" icon="star"></iron-icon>
+      </div>
+      <p class="cafe-light">
+Three ounces of pork tenderloin provide 6% of the magnesium and 15% of the potassium you need every day.
+Tip: Meat lovers, rejoice! This lean cut provides plenty of meaty flavor and satisfaction without the overload of saturated fat found in fattier types of beef and pork. Cook larger tenderloins (or do several on the grill or in the oven) and store leftovers in the refrigerator or freezer for fast weeknight meals. </p>
+    </div>
+
+  </paper-card>
+
+   <br>
+   <br>
+
+<br>
+  <br>
+    <paper-card style=" background-color: white!important;" image="http://www.prevention.com/sites/prevention.com/files/styles/slideshow-desktop/public/static/04-yogurt-COMP-3489109.jpg?itok=X9pG7fxx" alt="Donuts">
+    <div class="card-content">
+      <div class="cafe-header">Fat-free plain yogurt
+        <div class="cafe-location cafe-light">
+          <iron-icon icon="communication:location-on"></iron-icon>
+        
+        </div>
+      </div>
+      <div class="cafe-rating">
+        <iron-icon class="star" icon="star"></iron-icon>
+        <iron-icon class="star" icon="star"></iron-icon>
+        <iron-icon class="star" icon="star"></iron-icon>
+        <iron-icon class="star" icon="star"></iron-icon>
+        <iron-icon class="star" icon="star"></iron-icon>
+      </div>
+      <p class="cafe-light">
+One cup of fat-free plain yogurt provides 49% of the calcium, 12% of the magnesium, and 18% of the potassium you need every day.
+
+Tip: Cool and creamy, yogurt is a star ingredient in mineral-rich breakfasts, in sauces and salad dressings, and even in entrées. Most brands of regular yogurt tend to be a bit higher in calcium than Greek varieties. You can control the fat and nutrient content by making your own yogurt at home for your high blood pressure diet. </p>
+    </div>
+
+  </paper-card>
+
+   <br>
+   <br>
+
+<br>
+    <paper-card style=" background-color: white!important;" image="http://www.prevention.com/sites/prevention.com/files/styles/slideshow-desktop/public/static/05-tilapia-COMP-1312729.jpg?itok=6fxy4Pfv" alt="Donuts">
+    <div class="card-content">
+      <div class="cafe-header">Tilapia
+        <div class="cafe-location cafe-light">
+          <iron-icon icon="communication:location-on"></iron-icon>
+        
+        </div>
+      </div>
+      <div class="cafe-rating">
+        <iron-icon class="star" icon="star"></iron-icon>
+        <iron-icon class="star" icon="star"></iron-icon>
+        <iron-icon class="star" icon="star"></iron-icon>
+        <iron-icon class="star" icon="star"></iron-icon>
+        <iron-icon class="star" icon="star"></iron-icon>
+      </div>
+      <p class="cafe-light">
+Four ounces of tilapia provides 8% of the magnesium and 8% of the potassium you need every day.
+
+Tip: This mild white fish is available year-round in supermarkets and fish stores, fresh or as frozen fillets. You can roast it, bake it, and sauté it, flavor it with a variety of seasonings, and even top it with mineral-rich kiwi-avocado salsa. Tilapia is extremely low in environmental toxins like mercury and PCBs (polychlorinated biphenyls), and it is considered a sustainable, environmentally friendly choice. Most US-raised tilapia is grown in closed-system fish farms on plant-based diets, an approach that doesn’t threaten stocks of wild fish, according to the nonprofit Food & Water Watch.</p>
+    </div>
+
+  </paper-card>
               </section>
                <!-- Freeboard section -->
               <!-- <section data-route="control">
@@ -256,9 +388,7 @@
               </section> -->
 
             </iron-pages>
-            <script>
   
-</script>
           </div>
         </paper-scroll-header-panel>
       </paper-drawer-panel>
@@ -272,8 +402,6 @@
 
     <!-- JS -->
         <script src="scripts/app.js"></script>
-      
-
         <!-- Jquery and EON charts plugin for visualization -->
         <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
         <script type="text/javascript" src="http://pubnub.github.io/eon/v/eon/0.0.10/eon.js"></script>
