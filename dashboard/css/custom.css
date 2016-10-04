@@ -1,5 +1,5 @@
 .sidebar ul.nav .active a, .sidebar ul.nav li.parent a.active, .sidebar ul.nav .active > a:hover, .sidebar ul.nav li.parent a.active:hover, .sidebar ul.nav .active > a:focus, .sidebar ul.nav li.parent a.active:focus{
-    background-color: #000000;
+    background-color: #30a5ff;
 }
 ul.nav a {
     font-size: 20px;
@@ -13,12 +13,34 @@ ul.nav a {
     font-size: 45px;
 }
 .gauge-div .large{
-    font-size: 40px;
+    font-size: 35px;
 }
 .gauge-div .text-muted{
-    font-size: 20px;
-    margin-top: 5px;
+    font-size: 17px;
+    margin-top: 3px;
 }
 .gauge-div .widget-right{
+    text-align: center;
+}
+.img-circle {
+    border-radius: 50%;
+    max-width: 100%;
+    width: 200px;
+    margin: 16px auto;
+}
+.nav {
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    text-align: left;
+}
+#card div{
+    margin: 0 auto;
+    background-color: #20e4ae;
+}
+#card h3, #card h2{
+    color: #fffffF;
+}
+.sidebar{
     text-align: center;
 }
