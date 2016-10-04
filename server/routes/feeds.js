@@ -36,6 +36,14 @@ exports.findAll = function(req, res) {
         });
     });
 };
+exports.findLast = function(req, res) {
+    var id = req.params.id;
+    db.collection('feeds', function(err, collection) {
+        collection.find({"user_id":id}).sort({"_id":-1}).limit(1).toArray(function(err, items) {
+            res.send(items);
+        });
+    });
+};
 
 exports.addFeed = function(req, res) {
     var id = req.params.id;
