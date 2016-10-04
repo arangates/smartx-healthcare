@@ -13,7 +13,6 @@ db.open(function(err, db) {
         db.collection('feeds', {strict:true}, function(err, collection) {
             if (err) {
                 console.log("The 'feeds' collection doesn't exist. Creating it with sample data...");
-//                populateDB();
             }
         });
     }
