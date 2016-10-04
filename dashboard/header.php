@@ -45,3 +45,14 @@
 
             </div><!-- /.container-fluid -->
         </nav>
+        <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar">            
+            <ul class="nav menu">
+                <li class="active"><a href="index.php"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Dashboard</a></li>
+                <li><a href="pulse.php"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Pulse</a></li>
+                <li><a href="bp.php"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Blood Pressure</a></li>
+                <li><a href="temp.php"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Temperature</a></li>
+                <li><a href="report.php"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Report </a></li>
+                <li><a href="cunsult.php"><svg class="glyph stroked app-window"><use xlink:href="#stroked-app-window"></use></svg> Consult</a></li>                
+                <li role="presentation" class="divider"></li>                
+            </ul>
+        </div><!--/.sidebar-->

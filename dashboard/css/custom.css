@@ -12,3 +12,13 @@ ul.nav a {
 .col-sm-3.col-lg-5.widget-left .fa{
     font-size: 45px;
 }
+.gauge-div .large{
+    font-size: 40px;
+}
+.gauge-div .text-muted{
+    font-size: 20px;
+    margin-top: 5px;
+}
+.gauge-div .widget-right{
+    text-align: center;
+}
