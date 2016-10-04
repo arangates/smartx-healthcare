@@ -1,0 +1,11 @@
+.sidebar ul.nav .active a, .sidebar ul.nav li.parent a.active, .sidebar ul.nav .active > a:hover, .sidebar ul.nav li.parent a.active:hover, .sidebar ul.nav .active > a:focus, .sidebar ul.nav li.parent a.active:focus{
+    background-color: #000000;
+}
+ul.nav a {
+    font-size: 20px;
+    padding: 15px;
+}
+.navbar-inverse {
+    background-color: rgba(34, 34, 34, 0.75);
+    border-color: #080808;
+}
